@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>HW2 Node.js</title>
+        <link rel="stylesheet" href="bootstrap.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="./script.js" defer></script>
+    </head>
+
+    <body>     
+        <div class="container">
+            <h2 class="tit">
+                User & Worker
+            </h2>
+
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                Create
+                            </button>
+                        </h5>
+                    </div>
+        
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form id='createForm'>
+                                <div class="form-group">
+                                    <label for="name">User Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter user name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" min=1 class="form-control" id="age" placeholder="Enter Age">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select class="form-control" id="gender" placeholder="Enter gender">
+                                        <option>Female</option>
+                                        <option>Male</option> 
+                                    </select>
+                                </div>  
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>   
+                                <div class="form-group">
+                                    <label for="position">Position</label>
+                                    <input type="text" class="form-control" id="position" placeholder="Enter position">
+                                </div>                                           
+                                <button type="submit" id='cbutton' class="popup btn btn-outline-primary">
+                                    Submit
+                                    <span class="popuptext" id="crtS">Successfully</span>
+                                    <span class="popuptext" id="crtE">Error</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button id='rbutton' class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">
+                                Read
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Worker Id</th>
+                                        <th scope="col">User Name</th>
+                                        <th scope="col">Age</th>
+                                        <th scope="col">Gender</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody id='rTBody'>        
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button id='pubutton'  class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                Update
+                               
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form id='updateForm'>
+                                <div class="form-group">
+                                    <label for="uid">ID</label>
+                                    <select id="uid" class="form-control">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="uname">User Name</label>
+                                    <input type="text" class="form-control" id="uname" placeholder="Enter user name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="uage">Age</label>
+                                    <input type="number" min=1 class="form-control" id="uage" placeholder="Enter Age">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ugender">Sex</label>
+                                    <select class="form-control" id="ugender" placeholder="Enter gender">
+                                        <option>Female</option>
+                                        <option>Male</option> 
+                                    </select>
+                                </div>  
+                                <div class="form-group">
+                                    <label for="uemail">Email</label>
+                                    <input type="email" class="form-control" id="uemail" placeholder="Enter email">
+                                </div>   
+                                <div class="form-group">
+                                    <label for="uposition">Position</label>
+                                    <input type="text" class="form-control" id="uposition" placeholder="Enter position">
+                                </div>         
+                                <button type="submit" id='ubutton' class="popup btn btn-outline-primary">
+                                    Submit 
+                                    <span class="popuptext" id="updS">Successfully</span>
+                                    <span class="popuptext" id="updE">Error</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+                                aria-expanded="false" aria-controls="collapseFour">
+                                Delete
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form id='deleteForm'>
+                                <div class="form-group">
+                                    <label for="did">ID</label>
+                                    <input type="text" class="form-control" id="did" placeholder="Enter ID">
+                                </div>
+                                <button type="submit" id='dbutton' class="popup btn btn-outline-danger">
+                                    Submit 
+                                    <span class="popuptext" id="delS">Successfully</span>
+                                    <span class="popuptext" id="delE">Error</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>   
+    </body>
+</html>
